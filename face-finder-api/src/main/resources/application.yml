@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: face-finder-api
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB       # max size of a single uploaded file
+      max-request-size: 500MB   # max total request size (multiple files)
+
+face-finder:
+  # Cosine-similarity threshold for a face-match decision (0–1).
+  # Higher = stricter.  Typical sweet-spot: 0.55–0.70.
+  similarity-threshold: 0.6
+
+  output:
+    # Default parent directory for matched-file output.
+    # A timestamped sub-folder is created per request.
+    base-dir: output
+
+  detection:
+    # Minimum detector confidence to accept a bounding box (0–1).
+    confidence-threshold: 0.85
+
+  cors:
+    allowed-origins: "*"
+
+logging:
+  level:
+    com.facefinder: DEBUG
+    ai.djl: INFO
+
