@@ -1,0 +1,12 @@
+image-to-text:
+  ocr:
+    language: eng
+    datapath: ""
+  cors:
+    allowed-origins: "*"
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 500MB
